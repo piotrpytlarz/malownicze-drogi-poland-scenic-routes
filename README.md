@@ -1,9 +1,10 @@
 ---
 language:
   - pl
+  - en
 license: cc-by-4.0
 pretty_name: "Malownicze Drogi w Polsce — Multi-Criteria Scenic Routes Catalog & Road Verification Dataset (378 Routes, 16 Voivodeships)"
-description: "Otwarty zbiór danych 378 malowniczych tras samochodowych w Polsce (320 tras głównych w 16 województwach oraz 58 tras kandydackich) z 6-kryterialną oceną krajobrazową i logistyczną (K1–K6), wynikami 0–100 pkt, analizą ryzyka sezonowego oraz rejestrem źródeł zarządców dróg i parków narodowych z serwisu https://malowniczedrogi.pl."
+description: "Bilingual-documented open dataset of 378 scenic driving routes across all 16 Polish voivodeships (320 deployed routes + 58 candidates) with 6-criteria evaluation (K1–K6, 0–100 pts), seasonal/roadworks risk analysis, and 1,994 verified road-authority, national-park, and OpenStreetMap/OSRM sources from https://malowniczedrogi.pl (CC BY 4.0)."
 size_categories:
   - n<1K
   - 1K<n<10K
@@ -21,39 +22,44 @@ tags:
   - gis
 ---
 
-# Malownicze Drogi w Polsce — Multi-Criteria Scenic Routes Catalog & Verification Dataset
+# Malownicze Drogi w Polsce — Multi-Criteria Scenic Routes Catalog & Verification Dataset (EN / PL)
 
-Otwarty pakiet danych badawczych i geograficzno-turystycznych z serwisu **[Malownicze Drogi w Polsce (malowniczedrogi.pl)](https://malowniczedrogi.pl/)**, dokumentujący **378 tras widokowych i krajoznawczych w Polsce** (w tym kanoniczny zestaw **320 tras wdrożonych** — po 20 na każde z 16 województw — oraz **58 tras kandydackich**) wraz z jawną, sześciokryterialną oceną jakości (`K1–K6`, skala 0–100 pkt), audytem przejezdności i rejestrem źródeł weryfikacyjnych.
+## 🇬🇧 English Overview
+
+An open geospatial, tourism, and multi-criteria evaluation dataset from **[Malownicze Drogi w Polsce (`malowniczedrogi.pl`)](https://malowniczedrogi.pl/)**, documenting **378 scenic driving routes across all 16 Polish voivodeships** (comprising the canonical cohort of **320 deployed routes** — 20 per voivodeship — plus **58 candidate routes**), evaluated under an explicit 6-criteria rubric (`K1–K6`, weighted `0–100` score) and backed by **1,994 verified evidence citations** from regional road authorities, national and landscape parks, local governments, and OSRM/OpenStreetMap routing audits.
+
+- **Interactive Map & Route Explorer:** [https://malowniczedrogi.pl/](https://malowniczedrogi.pl/)
+- **Full 6-Criteria Scoring Methodology (`K1–K6`) & Geometry Quarantine Rules:** [https://malowniczedrogi.pl/metodyka/](https://malowniczedrogi.pl/metodyka/)
+- **Sitemap (16 Voivodeship Hubs + 145 Indexed Static Route Pages):** [https://malowniczedrogi.pl/sitemap.xml](https://malowniczedrogi.pl/sitemap.xml)
+
+### Dataset Files (`open-data/`)
+
+| File | Records | Description |
+| --- | ---: | --- |
+| `polish-scenic-routes-catalog.json` / `.csv` | **378 routes** (`320` deployed + `58` candidate) | Complete catalog with English column names: `id`, `name`, `voivodeship`, `cohort`, `region`, `length_km`, `waypoints`, `has_verified_map_geometry`, `route_primary_type` (`widokowa` scenic, `kulturowa` cultural, `mieszana` mixed, `aktywna` active), integer `1–5` scores and rationales across 6 criteria (`K1..K6`), `weighted_score_0_100`, `classification`, `main_strength`, `main_risk`, `confirmed_facts`, `unknown_or_requires_verification`, and canonical URLs to [malowniczedrogi.pl](https://malowniczedrogi.pl/). |
+| `polish-scenic-routes-sources.json` / `.csv` | **1,994 citations** | Linked evidence registry per route: regional road authority schedules and roadworks notices (`road_authority`), national/landscape park guides (`park_or_forest`), municipal records (`local_government`), regional guides (`guide`), and OSRM / OpenStreetMap routing checks (`openstreetmap`). |
+
+### Six-Criteria Evaluation Model (`K1–K6`)
+
+| Code | Criterion (EN / PL) | Weight | What It Measures |
+| --- | --- | ---: | --- |
+| **`K1`** | **Landscape Visible from the Road** (*Krajobraz widoczny z trasy*) | **30%** | Continuity and diversity of scenic vistas directly visible from the vehicle or roadside pull-offs (relief, river gorges, lakes, primeval forests). Unverified geometry caps scores at 3/5. |
+| **`K2`** | **Regional Identity & Significance** (*Regionalna tożsamość i znaczenie*) | **20%** | Grounding in a coherent physicogeographical or cultural region (e.g., Sudetes, Bieszczady, Roztocze, Podlasie, Kashubia) rather than an arbitrary transit link. |
+| **`K3`** | **Driving Experience & Sequence** (*Doświadczenie jazdy i sekwencja*) | **20%** | Road rhythm, hairpins, elevation changes, scenic progression, and absence of heavy freight transit. |
+| **`K4`** | **Stops Quality & Diversity** (*Jakość i różnorodność postojów*) | **15%** | Named viewpoints, trailheads, wooden churches, castles, canal locks, and nature reserves along the corridor. |
+| **`K5`** | **Accessibility & Logistics** (*Dostępność i logistyka*) | **10%** | Passability for a standard passenger car, paved surface continuity, public road status, and OSRM geometry verification. |
+| **`K6`** | **Safety & Seasonality** (*Bezpieczeństwo i sezonowość*) | **5%** | Winter maintenance risks on mountain passes, seasonal closures, shuttle traffic / roadworks, and narrow cross-sections. |
+
+---
+
+## 🇵🇱 Opis po polsku — Malownicze Drogi w Polsce (`malowniczedrogi.pl`)
+
+Otwarty pakiet danych badawczych i geograficzno-turystycznych z serwisu **[Malownicze Drogi w Polsce (malowniczedrogi.pl)](https://malowniczedrogi.pl/)**, dokumentujący **378 tras widokowych i krajoznawczych w Polsce** (w tym kanoniczny zestaw **320 tras wdrożonych** — po 20 na każde z 16 województw — oraz **58 tras kandydackich**) wraz z jawną, sześciokryterialną oceną jakości (`K1–K6`, skala 0–100 pkt), audytem przejezdności i rejestrem **1 994 źródeł weryfikacyjnych**.
 
 - **Strona główna i interaktywna mapa tras:** [https://malowniczedrogi.pl/](https://malowniczedrogi.pl/)
 - **Pełna metodyka oceny wielokryterialnej (K1–K6) i kwarantanny geometrii:** [https://malowniczedrogi.pl/metodyka/](https://malowniczedrogi.pl/metodyka/)
-- **Mapa strony (16 województw + 145 zweryfikowanych kart tras SEO):** [https://malowniczedrogi.pl/sitemap.xml](https://malowniczedrogi.pl/sitemap.xml)
 
----
-
-## Zawartość pakietu (`open-data/`)
-
-| Plik | Liczba rekordów | Opis zawartości |
-| --- | ---: | --- |
-| `polish-scenic-routes-catalog.json` / `.csv` | **378 tras** (320 `deployed` + 58 `candidate`) | Pełny katalog tras widokowych w 16 województwach: punkty przelotowe (`waypoints`), długość (`length_km`), region fizycznogeograficzny, typ trasy (`widokowa`, `kulturowa`, `mieszana`, `aktywna`), wyniki i uzasadnienia w 6 kryteriach (`K1..K6`), wynik ważony `0–100`, klasyfikacja, główny atut (`main_strength`), główne ryzyko (`main_risk`), potwierdzone fakty, elementy wymagające weryfikacji przed wyjazdem oraz kanoniczne linki URL do [malowniczedrogi.pl](https://malowniczedrogi.pl/). |
-| `polish-scenic-routes-sources.json` / `.csv` | **~1 900 przypisów źródłowych** | Powiązane z trasami źródła dowodowe: wykazy i komunikaty wojewódzkich zarządów dróg (`road_authority`), plany i przewodniki parków narodowych i krajobrazowych (`park_or_forest`), dokumenty samorządowe (`local_government`), przewodniki regionalne (`guide`) oraz obliczenia OSRM / OpenStreetMap (`openstreetmap`). |
-
----
-
-## Sześciokryterialny model oceny tras (`K1–K6`)
-
-Każda trasa w zbiorze została oceniona na skali całkowitej `1–5` w sześciu wymiarach (szczegółowa dokumentacja kotwic punktowych znajduje się na stronie **[Metodyka oceny tras](https://malowniczedrogi.pl/metodyka/)**):
-
-1. **`K1` — Krajobraz widoczny z trasy (waga 30%):** Ciągłość i różnorodność otwarć widokowych dostępnych bezpośrednio z samochodu lub przydrożnych zatok (rzeźba terenu, doliny rzeczne, jeziora, zwarte kompleksy leśne). Brak potwierdzonej geometrii lub widoczności blokuje oceny `4–5`.
-2. **`K2` — Regionalna tożsamość i znaczenie (waga 20%):** Osadzenie szlaku w spójnym regionie fizycznogeograficznym lub kulturowym (np. Sudety, Roztocze, Podlasie, Kaszuby, Żuławy) ponad przypadkowy łącznik tranzytowy.
-3. **`K3` — Doświadczenie jazdy i sekwencja (waga 20%):** Rytm drogi, serpentyny, zmiany wysokości, czytelność sekwencji krajobrazowej oraz uciążliwość ruchu ciężarowego.
-4. **`K4` — Jakość i różnorodność postojów (waga 15%):** Udokumentowane punkty widokowe, leśne parkingi z nazwą i funkcją, zabytki, śluzy, rezerwaty i krótkie podejścia piesze.
-5. **`K5` — Dostępność i logistyka (waga 10%):** Przejezdność dla standardowego samochodu osobowego, ciągłość nawierzchni asfaltowej, status publicznego dostępu i weryfikacja geometrii.
-6. **`K6` — Bezpieczeństwo i sezonowość (waga 5%):** Ryzyka zimowego utrzymania na przełęczach górskich, sezonowe zamknięcia, ruch wahadłowy, wąskie przekroje i ruch turystyczny.
-
----
-
-## Indeks województw na [malowniczedrogi.pl](https://malowniczedrogi.pl/)
+### Indeks województw na [malowniczedrogi.pl](https://malowniczedrogi.pl/)
 
 - [Dolnośląskie](https://malowniczedrogi.pl/wojewodztwa/dolnoslaskie/) · [Kujawsko-Pomorskie](https://malowniczedrogi.pl/wojewodztwa/kujawsko-pomorskie/) · [Lubelskie](https://malowniczedrogi.pl/wojewodztwa/lubelskie/) · [Lubuskie](https://malowniczedrogi.pl/wojewodztwa/lubuskie/)
 - [Łódzkie](https://malowniczedrogi.pl/wojewodztwa/lodzkie/) · [Małopolskie](https://malowniczedrogi.pl/wojewodztwa/malopolskie/) · [Mazowieckie](https://malowniczedrogi.pl/wojewodztwa/mazowieckie/) · [Opolskie](https://malowniczedrogi.pl/wojewodztwa/opolskie/)
@@ -62,13 +68,11 @@ Każda trasa w zbiorze została oceniona na skali całkowitej `1–5` w sześciu
 
 ---
 
-## Licencja i cytowanie (CC BY 4.0 + ODbL)
+## License & Citation / Licencja i cytowanie (CC BY 4.0 + ODbL)
 
-Zbiór danych, opisy, oceny `K1–K6` i uzasadnienia są udostępniane na licencji **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)**. Dane geometryczne i wyliczenia drogowe OSRM bazują na danych **© OpenStreetMap contributors** (licencja ODbL).
+This dataset is licensed under **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)**. Route geometry and OSRM distance/duration calculations are derived from **© OpenStreetMap contributors** under the Open Database License (ODbL).
 
-Przy wykorzystaniu zbioru w analizach GIS, modelach rekomendacyjnych, przewodnikach lub badaniach turystycznych prosimy o podanie atrybucji z aktywnym linkiem:
-
-> **Źródło:** *Malownicze Drogi w Polsce — Katalog i wielokryterialna ocena tras widokowych* ([https://malowniczedrogi.pl](https://malowniczedrogi.pl)), licencja CC BY 4.0.
+> **Attribution / Źródło:** *Malownicze Drogi w Polsce — Multi-Criteria Scenic Routes Catalog* ([https://malowniczedrogi.pl](https://malowniczedrogi.pl)), CC BY 4.0.
 
 ```bibtex
 @dataset{malownicze_drogi_poland_2026,
